@@ -1,4 +1,9 @@
-# sorte-io
+# SorteIO
+
+## Website
+```
+https://sorteio.web.app/
+```
 
 ## Project setup
 ```
