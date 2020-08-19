@@ -3,7 +3,7 @@
     <h2>Bem vindo(a)!</h2>
     <p class="mt-5">
       Para passar o tempo... Faça sorteios personalizados, bingo ou simule jogos das lotéricas.<br>
-      E se, por acaso, venha a ganhar algum jogo usando uma combinação tirada daqui, não custa nada uma doação singela para o desenvolvedor...
+      E se, por acaso, venha a ganhar algum jogo usando uma combinação tirada daqui, não custa nada uma doação singela para o desenvolvedor...<br>
       Aos poucos vou acrescentando outras modalidades, aceito sugestões.
     </p>
   </div>
