@@ -20,8 +20,10 @@
                     label="Quantas dezenas?"
                     v-model="max_bingo"
                     min="1"
+                    @keyup.enter="bingo"
                   ></v-text-field>
-                  <v-btn class="my-2" small color="secondary"  v-if="numeros.length < max_bingo" @click="bingo">Sortear</v-btn>
+                  <v-btn class="my-2" small color="secondary"  v-if="max_bingo && (numeros.length === 0)" @click="bingo">Sortear primeira</v-btn>
+                  <v-btn class="my-2" small color="secondary"  v-else-if="numeros.length < max_bingo" @click="bingo">Sortear próxima</v-btn>
                 </v-col>
                 <v-col v-if="numeros.length > 0">
                   <p>Todas as "bolas" sorteadas:<br>
@@ -90,18 +92,17 @@
               </v-toolbar>
 
               <v-container fluid>
-                <v-row dense class="align-center">
+                <v-col dense class="align-center">
                   <v-text-field
                     type="number"
                     label="Quantas dezenas?"
                     v-model="dezenas"
                     :min=min
                     :max=max
+                    @keyup.enter="play"
                   ></v-text-field>
-                  <v-btn icon>
-                    <v-icon color="primary" @click="play">mdi-send</v-icon>
-                  </v-btn>
-                </v-row>
+                  <v-btn class="my-2" small color="secondary" @click="play">Sortear</v-btn>
+                </v-col>
                 <v-row v-if="numeros.length > 0" class="result">
                   <div v-for="num in numeros" :key="num" class="mx-2" >
                     {{ num }}
