@@ -14,22 +14,20 @@
               </v-toolbar>
 
               <v-container fluid>
-                <v-row dense class="align-center">
+                <v-col dense class="align-center">
                   <v-text-field
                     type="number"
                     label="Quantas dezenas?"
                     v-model="max_bingo"
                     min="1"
                   ></v-text-field>
-                  <v-btn icon @click= "bingo" v-if="numeros.length < max_bingo">
-                    <v-icon color="primary">mdi-send</v-icon>
-                  </v-btn>
-                </v-row>
+                  <v-btn class="my-2" small color="secondary"  v-if="numeros.length < max_bingo" @click="bingo">Sortear</v-btn>
+                </v-col>
                 <v-col v-if="numeros.length > 0">
                   <p>Todas as "bolas" sorteadas:<br>
                   {{ numeros }}</p>
                   <p>Foram chamadas {{ numeros.length }} bolas</p>
-                  <p><strong>Última "pedra" chamada: {{ sorted }}</strong></p>
+                  <h4>Última "pedra" chamada:<br>{{ sorted }}</h4>
                 </v-col>
               </v-container>
             </v-card>
