@@ -52,7 +52,7 @@
                 <v-row dense class="align-center">
                   <v-text-field
                     type="text"
-                    label="Digite um nome"
+                    label="Primeiro item, pessoa ou número"
                     v-model="nome"
                     v-if="nomes.length === 0"
                     @keyup.enter="sendNames"
@@ -60,7 +60,7 @@
                   ></v-text-field>
                   <v-text-field
                     type="text"
-                    label="Digite outro nome"
+                    label="Próximo item"
                     v-model="nome"
                     v-else
                     @keyup.enter="sendNames"
@@ -68,9 +68,9 @@
                   ></v-text-field>
                 </v-row>
                 <v-col v-if="nomes.length > 0" class="result">
-                  <ol class="text-left">
+                  <ul class="text-left">
                     <li v-for="n in nomes" :key="n">{{ n }}</li>
-                  </ol>
+                  </ul>
                   <v-btn class="my-2" small color="secondary" @click="sortNames">Sortear</v-btn>
                   <h4 v-if="sorted">Sorteado(a):<br>{{ sorted }}</h4>
                 </v-col>

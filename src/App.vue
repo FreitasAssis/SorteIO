@@ -28,7 +28,7 @@
 
       <v-tabs centered v-if="menu" class="d-none d-md-inline">
         <v-tab @click="chooseGame('home')">Início</v-tab>
-        <v-tab @click="chooseGame('nomes')">Sorteio de nomes</v-tab>
+        <v-tab @click="chooseGame('nomes')">Sorteio personalizado</v-tab>
         <v-tab @click="chooseGame('bingo')">Bingo</v-tab>
         <v-tab @click="chooseGame('megasena')">Megasena</v-tab>
         <v-tab @click="chooseGame('lotomania')">Lotomania</v-tab>
@@ -36,7 +36,7 @@
 
       <v-tabs vertical v-if="!menu" class="d-md-none">
         <v-tab @click="chooseGame('home')" class="tab_sm">Início</v-tab>
-        <v-tab @click="chooseGame('nomes')" class="tab_sm">Sorteio de nomes</v-tab>
+        <v-tab @click="chooseGame('nomes')" class="tab_sm">Sorteio personalizado</v-tab>
         <v-tab @click="chooseGame('bingo')" class="tab_sm">Bingo</v-tab>
         <v-tab @click="chooseGame('megasena')" class="tab_sm">Megasena</v-tab>
         <v-tab @click="chooseGame('lotomania')" class="tab_sm">Lotomania</v-tab>
