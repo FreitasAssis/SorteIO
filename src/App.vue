@@ -12,7 +12,7 @@
       <div class="d-flex align-center">
         <h1>SorteIO</h1>
       </div>
-      <div style="width:50%" class="text-right">
+      <div style="width:50%" class="d-none d-sm-inline text-right">
         <v-btn
           href="https://luiz-freitas.web.app/"
           target="_blank"
@@ -26,12 +26,20 @@
 
     <v-main class="text-center">
 
-      <v-tabs centered v-if="menu">
+      <v-tabs centered v-if="menu" class="d-none d-md-inline">
         <v-tab @click="chooseGame('home')">Início</v-tab>
         <v-tab @click="chooseGame('nomes')">Sorteio de nomes</v-tab>
         <v-tab @click="chooseGame('bingo')">Bingo</v-tab>
         <v-tab @click="chooseGame('megasena')">Megasena</v-tab>
         <v-tab @click="chooseGame('lotomania')">Lotomania</v-tab>
+      </v-tabs>
+
+      <v-tabs vertical v-if="menu" class="d-md-none">
+        <v-tab @click="chooseGame('home')" class="tab_sm">Início</v-tab>
+        <v-tab @click="chooseGame('nomes')" class="tab_sm">Sorteio de nomes</v-tab>
+        <v-tab @click="chooseGame('bingo')" class="tab_sm">Bingo</v-tab>
+        <v-tab @click="chooseGame('megasena')" class="tab_sm">Megasena</v-tab>
+        <v-tab @click="chooseGame('lotomania')" class="tab_sm">Lotomania</v-tab>
       </v-tabs>
 
       <Home class="mt-10" v-if="home" />
@@ -141,6 +149,8 @@ export default {
 <style scoped lang="stylus">
 .app
   height 100vh
+.tab_sm
+  align-self center
 footer
   justify-content space-around
 </style>

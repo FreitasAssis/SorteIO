@@ -50,20 +50,30 @@
 
               <v-container fluid>
                 <v-row dense class="align-center">
-                  <v-textarea
-                    auto-grow
-                    name="input-7-1"
-                    label="Digite os nomes, um abaixo do outro"
-                    v-model="nomes"
-                    hint="'Enter' para o próximo nome"
-                  ></v-textarea>
-                  <v-btn icon v-if="nomes.length > 0">
-                    <v-icon color="primary" @click="names">mdi-send</v-icon>
-                  </v-btn>
+                  <v-text-field
+                    type="text"
+                    label="Digite um nome"
+                    v-model="nome"
+                    v-if="nomes.length === 0"
+                    @keyup.enter="sendNames"
+                    hint="'Enter para enviar'"
+                  ></v-text-field>
+                  <v-text-field
+                    type="text"
+                    label="Digite outro nome"
+                    v-model="nome"
+                    v-else
+                    @keyup.enter="sendNames"
+                    hint="'Enter para enviar'"
+                  ></v-text-field>
                 </v-row>
-                <v-row v-if="nome" class="result">
-                  <p>Sorteado(a):<br>{{ nome }}</p>
-                </v-row>
+                <v-col v-if="nomes.length > 0" class="result">
+                  <ol class="text-left">
+                    <li v-for="n in nomes" :key="n">{{ n }}</li>
+                  </ol>
+                  <v-btn class="my-2" small color="secondary" @click="sortNames">Sortear</v-btn>
+                  <h4 v-if="sorted">Sorteado(a):<br>{{ sorted }}</h4>
+                </v-col>
               </v-container>
             </v-card>
           </div>
@@ -120,7 +130,7 @@ export default {
   data: () => {
     return {
       numeros: [],
-      nomes: '',
+      nomes: [],
       nome: null,
       max_bingo: null,
       sorted: null
@@ -149,12 +159,14 @@ export default {
       this.numeros.push(this.sorted)
       this.numeros.sort((a, b) => {return a - b})
     },
-    names () {
-      const names = this.nomes.split("\n")
-      this.nome = names[Math.floor(Math.random() * names.length)]
-      const i = this.nomes.indexOf(this.nome)
-      if (this.nomes[i - 1] === "\n") this.nomes = this.nomes.replace(`\n${this.nome}`, '')
-      else this.nomes = this.nomes.replace(`${this.nome}`, '')
+    sendNames () {
+      this.nomes.push(this.nome)
+      this.nome = null
+    },
+    sortNames () {
+      this.sorted = this.nomes[Math.floor(Math.random() * this.nomes.length)]
+      const i = this.nomes.indexOf(this.sorted)
+      this.nomes.splice(i,  1)
     }
   }
 }
