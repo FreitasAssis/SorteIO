@@ -34,7 +34,7 @@
         <v-tab @click="chooseGame('lotomania')">Lotomania</v-tab>
       </v-tabs>
 
-      <v-tabs vertical v-if="menu" class="d-md-none">
+      <v-tabs vertical v-if="!menu" class="d-md-none">
         <v-tab @click="chooseGame('home')" class="tab_sm">Início</v-tab>
         <v-tab @click="chooseGame('nomes')" class="tab_sm">Sorteio de nomes</v-tab>
         <v-tab @click="chooseGame('bingo')" class="tab_sm">Bingo</v-tab>
