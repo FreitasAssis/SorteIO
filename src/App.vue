@@ -18,7 +18,7 @@
           target="_blank"
           text
         >
-          <span class="mr-2">Site do sesenvolvedor</span>
+          <span class="mr-2">Site do desenvolvedor</span>
           <v-icon>mdi-open-in-new</v-icon>
         </v-btn>
       </div>
